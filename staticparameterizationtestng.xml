@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Demonstrating Static Parameterization Suite">
+<parameter name="url" value="https://login.salesforce.com"></parameter>
+  <test name="Demonstrating Static Parameterization Test">
+  	<parameter name="username" value="dilip@testleaf.com"></parameter>
+  	<parameter name="password" value="leaf@2024"></parameter>
+  	<classes>
+      <class name="week5.day2.homeassignments.TC2_CreateNewLegalEntity"/>
+    </classes>
+  </test> <!-- Demonstrating Static Parameterization Test -->
+</suite> <!-- Demonstrating Static Parameterization Suite -->

@@ -1,4 +1,4 @@
-package week5.day1.homeassignments;
+package week5.day2.homeassignments;
 
 import java.time.Duration;
 
@@ -9,12 +9,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 public class ProjectSpecificMethod {
 	public ChromeDriver driver;
+	@Parameters({"url","username","password"})
 	
 	@BeforeMethod
-	public void preCondition() {
+	public void preCondition(String url, String username, String pass) {
 		 // Disable browser notifications
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
@@ -23,9 +25,9 @@ public class ProjectSpecificMethod {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		
-        driver.get("https://login.salesforce.com");		
-		driver.findElement(By.id("username")).sendKeys("dilip@testleaf.com");
-		driver.findElement(By.id("password")).sendKeys("leaf@2024");
+        driver.get(url);		
+		driver.findElement(By.id("username")).sendKeys(username);
+		driver.findElement(By.id("password")).sendKeys(pass);
 		driver.findElement(By.id("Login")).click();
 		
 		//- Click on the toggle menu button from the left corner

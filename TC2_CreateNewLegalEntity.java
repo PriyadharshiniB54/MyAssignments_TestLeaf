@@ -1,4 +1,4 @@
-package week5.day1.homeassignments;
+package week5.day2.homeassignments;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
