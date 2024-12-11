@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="classes" name="New Legal Entity Suite">
+  <test thread-count="5"  name="New Legal Entity Test">
+    <classes>
+      <class name="week5.day1.homeassignments.TC1_CreateNewLegalEntity"/>
+      <class name="week5.day1.homeassignments.TC2_CreateNewLegalEntity"/>
+    </classes>
+  </test> <!-- New Legal Entity Test -->
+</suite> <!-- New Legal Entity Suite -->
