@@ -6,7 +6,6 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 
 public class FinanceYahoo {
 
@@ -18,11 +17,9 @@ public class FinanceYahoo {
 		//Load the url - https://finance.yahoo.com/
 		driver.get("https://finance.yahoo.com/");
 		//Click on “Crypto” tab
-		WebElement moreElement = driver.findElement(By.xpath("//span[text()='More']"));
-		Actions moreOptions = new Actions(driver);
-		moreOptions.moveToElement(moreElement).perform();
-		driver.findElement(By.xpath("//a[@data-rapid_p='342']")).click();
-		
+		driver.findElement(By.xpath("//span[text()='More']")).click();
+		driver.findElement(By.xpath("(//a[text()='Crypto '])[3]")).click();
+	
 		//Locate the cryptocurrency names in the table using specific row and column. - Use loop & Print the cryptocurrency names
 		List<WebElement> rows = driver.findElements(By.xpath("//table[@class='markets-table freeze-col yf-paf8n5 fixedLayout']/tbody/tr"));
 		int rowCount = rows.size();
@@ -32,6 +29,7 @@ public class FinanceYahoo {
 					String cryptocurrencyName = driver.findElement(By.xpath("//table[@class='markets-table freeze-col yf-paf8n5 fixedLayout']/tbody/tr["+i+"]/td[2]")).getText();
 					System.out.println(cryptocurrencyName);	
 			}
+		driver.close();
 	}
 
 }
