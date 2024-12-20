@@ -1,32 +1,13 @@
 package stepDefinition;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
-import io.cucumber.java.en.Given;
+import base.ProjectSpecificMethodSalesForce;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class SalesForceAccountCreationStep {
-
-	public ChromeDriver driver;
-	
-
-	@Given("Launch the browser and load the URL")
-	public void launch_the_browser_and_load_the_url() {
-		 // Disable browser notifications
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-notifications");
-        driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		driver.get("https://login.salesforce.com");
-	}
+public class SalesForceAccountCreationStep extends ProjectSpecificMethodSalesForce {
 
 	@When("Enter the Salesforce user name as {string}")
 	public void enter_the_salesforce_user_name_as(String UserName) {
@@ -55,7 +36,8 @@ public class SalesForceAccountCreationStep {
 	}
 
 	@When("Click on toggle menu button from the left corner")
-	public void click_on_toggle_menu_button_from_the_left_corner() {
+	public void click_on_toggle_menu_button_from_the_left_corner() throws InterruptedException {
+		Thread.sleep(3000);
 		driver.findElement(By.xpath("//button[@title='App Launcher']")).click();
 	}
 
